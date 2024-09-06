@@ -1,0 +1,4 @@
+These are good resources to modify your terminal a little:
+
+https://github.com/tpope/vim-pathogen
+https://github.com/vim-airline/vim-airline?tab=readme-ov-file
