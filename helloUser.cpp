@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
 #include <ctime>
+#include <stdio.h>
 
-int  getAge(int age);
+int getAge(int age);
 int main() {
     std::cout << "Welcome! Please enter your name: ";
     std::string name;
@@ -15,6 +16,8 @@ int main() {
     // This is a comment string from my last program
     std::cout << "Hello and Welcome " << name << "\n";
     std::cout << "Get the year when " << name << " was born: " << getAge(userAge) << "\n";
+    
+    printf("Age: %d", userAge);
 
     return 0;
 }
