@@ -16,11 +16,9 @@ int main() {
     int numberOfguessAllowed = 10;
     int numberOfGuesses = 0;
 
-    while (secretNumber != number && (numberOfGuesses < numberOfguessAllowed)) {
-      if (numberOfGuesses == numberOfguessAllowed) {
-        std::cout << "You reached your limit for this game\nTry again later!\n";
-      }
+    if (numberOfGuesses == numberOfguessAllowed) std::cout << "You have reached the max number of guesses\nTry again soon! Enjoy.\n";
 
+    while (secretNumber != number && (numberOfGuesses < numberOfguessAllowed)) {
       printf("Guess the number between (1 - 50): ");
       std::cin >>  number;
       bool result = isGuessCorrect(number, secretNumber);
