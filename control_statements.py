@@ -2,8 +2,24 @@
 # This is a guessing game that I use to learn a new language
 from random import randint
 # random to generate random numbers
-from time
-from sys, os
+import time
+import sys, os
+
+"""
+This is a very simple Guessing Game in Python
+
+ ------------------------------------------
+|                                          |
+|     Welcome to the Guessing Game         |
+|                                          |
+ ------------------------------------------
+
+ This is a really good game or starting point to learn the basics of control structures
+ and looping in most programming languages. Having the ability to manipulate these 
+ Things can help you as a programmer understand what you need to keep excelling in this
+ Coding life or journey. Thank you for spending some time to look at my game and if you
+ can contribute you are more than welcome to create a `pull request`.
+"""
 
 def isGuessCorrect(number, secretNumber):
     if (number == secretNumber):
@@ -23,37 +39,48 @@ def isGuessCorrect(number, secretNumber):
     return False
 
 
-def GuessingGame():
+def GuessingGame(maxLimit):
     number = 0
+    numberOfGuesses = 0
     secretNumber = randint(0, 50) # Generate a random integer between 0-50
     print("Random number has been generated.")
-    print('''
-           /-------\  
-          |         | |  |     |   | |  _______| 
-          |  _______  |  |     |   | |  |____    
-          |  |    ___ |  |     |   | |  _____|
-          |  |___|  | |  |_____|   | |  |______
-          |      |  | |            | |         |
-           \ ___/|__| |________/|__| |_________|
-          ''')
+
     time.sleep(1)
-    print("loading...")
+    print("""
+
+ ------------------------------------------
+|                                          |
+|     Welcome to the Guessing Game         |
+|                                          |
+ ------------------------------------------
+   """)
+    time.sleep(1)
+   print("loading...")
     time.sleep(4)
 
-    os.system("cls")
+    os.system("clear")
     print("Welcome to the Guessing Game...")
-    while(number != secretNumber):
-        number = int(raw_input("Enter a number to guess: "))
+    while(number != secretNumber and numberOfGuesses <= maxLimit):
+        number = int(input("Enter a number to guess: "))
         if (number == secretNumber):
-            return isGuessCorrect(number, secretNumber)
+            isGuessCorrect(number, secretNumber)
         elif (number < secretNumber):
-            return isGuessCorrect(number, secretNumber)
+            isGuessCorrect(number, secretNumber)
         elif (number > secretNumber):
-            return isGuessCorrect(number, secretNumber)
+            isGuessCorrect(number, secretNumber)
         else:
             print("Try again soon. Looks like you have no luck today. :-)")
 
+        numberOfGuesses += 1
 
-if ("__name__" == __main__):
+def main():
+    print("You are playing the Guessing Game\n")
+    input("Press ENTER/RETURN key to continue...")
+    time.sleep(2)
+    limit = int(input("Enter max limit to start the game: "))
+    GuessingGame(limit)
+
+
+if (__name__ == '__main__'):
     # The main entry of the application
-    GuessingGame()
+    main()
