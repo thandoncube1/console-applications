@@ -35,7 +35,8 @@ def isGuessCorrect(number, secretNumber):
     else:
         print("Hooray!, you succeeded. Play again soon")
         return True
-
+    
+    print("Sorry, try again next time.\nMax Limit number of guesses reached.")
     return False
 
 
@@ -55,7 +56,7 @@ def GuessingGame(maxLimit):
  ------------------------------------------
    """)
     time.sleep(1)
-   print("loading...")
+    print("loading...")
     time.sleep(4)
 
     os.system("clear")
