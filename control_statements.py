@@ -41,7 +41,7 @@ def isGuessCorrect(number, secretNumber):
 
 def GuessingGame(maxLimit):
     number = 0
-    numberOfGuesses = 1
+    numberOfGuesses = 0
     secretNumber = randint(0, 50) # Generate a random integer between 0-50
     print("Random number has been generated.")
 
