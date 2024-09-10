@@ -35,14 +35,13 @@ def isGuessCorrect(number, secretNumber):
     else:
         print("Hooray!, you succeeded. Play again soon")
         return True
-    
-    print("Sorry, try again next time.\nMax Limit number of guesses reached.")
+
     return False
 
 
 def GuessingGame(maxLimit):
     number = 0
-    numberOfGuesses = 0
+    numberOfGuesses = 1
     secretNumber = randint(0, 50) # Generate a random integer between 0-50
     print("Random number has been generated.")
 
@@ -59,18 +58,22 @@ def GuessingGame(maxLimit):
     print("loading...")
     time.sleep(4)
 
-    os.system("clear")
+    os.system("clear") # Clear the screen for mac
     print("Welcome to the Guessing Game...")
     while(number != secretNumber and numberOfGuesses <= maxLimit):
+        print(f"Chances remaining: {int(maxLimit - numberOfGuesses)+1}")
         number = int(input("Enter a number to guess: "))
+        if (numberOfGuesses == maxLimit):
+            print(f"""\n--------------------------------------\nRemaining chances: {maxLimit-numberOfGuesses}\nSorry, try again next time.\nMax Limit number of guesses reached.\n--------------------------------------""")
+            return False
+
         if (number == secretNumber):
             isGuessCorrect(number, secretNumber)
-        elif (number < secretNumber):
+
+        if (number < secretNumber):
             isGuessCorrect(number, secretNumber)
         elif (number > secretNumber):
             isGuessCorrect(number, secretNumber)
-        else:
-            print("Try again soon. Looks like you have no luck today. :-)")
 
         numberOfGuesses += 1
 
@@ -78,7 +81,7 @@ def main():
     print("You are playing the Guessing Game\n")
     input("Press ENTER/RETURN key to continue...")
     time.sleep(2)
-    limit = int(input("Enter max limit to start the game: "))
+    limit = int(input("Enter max limit to start the game: ") or 10)
     GuessingGame(limit)
 
 
