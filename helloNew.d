@@ -19,10 +19,13 @@ dchar[] mix(immutable dchar[] first,
 
 int main() {
     char[] name;
-
+    dchar[] simpleVar;
     write("Hi, what is your name?\nName: ");
     readln(name);
+    // simpleVar = name.dup; // Create a copy
     writeln("Hello ", name);
+    dchar[] mixedResult = mix(name.dup, simpleVar); // store the result
+    writeln("Mixed: ", mixedResult); // Print the mixed result
 
     return 0;
 }
