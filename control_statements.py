@@ -61,7 +61,8 @@ def GuessingGame(maxLimit):
     os.system("clear") # Clear the screen for mac
     print("Welcome to the Guessing Game...")
     while(number != secretNumber and numberOfGuesses <= maxLimit):
-        print(f"Chances remaining: {int(maxLimit - numberOfGuesses)+1}")
+        numberOfGuesses += 1 # Increment the values first before the operations
+        print(f"Chances remaining: {int(maxLimit - numberOfGuesses) + 1}")
         number = int(input("Enter a number to guess: "))
         if (numberOfGuesses == maxLimit):
             print(f"""\n--------------------------------------\nRemaining chances: {maxLimit-numberOfGuesses}\nSorry, try again next time.\nMax Limit number of guesses reached.\n--------------------------------------""")
@@ -75,7 +76,7 @@ def GuessingGame(maxLimit):
         elif (number > secretNumber):
             isGuessCorrect(number, secretNumber)
 
-        numberOfGuesses += 1
+
 
 def main():
     print("You are playing the Guessing Game\n")

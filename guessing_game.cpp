@@ -8,7 +8,7 @@
 bool isGuessCorrect(int number, int secretNumber);
 int main() {
     std::cout << "This is a sample game for beginnners. \n";
-    
+
     srand(time(NULL));
 
     int number = 0;
@@ -16,26 +16,34 @@ int main() {
     int numberOfguessAllowed = 10;
     int numberOfGuesses = 0;
 
-    if (numberOfGuesses == numberOfguessAllowed) std::cout << "You have reached the max number of guesses\nTry again soon! Enjoy.\n";
+    // Assign pointers
+    int* guess = &number;
+    int& incrementRef = numberOfGuesses;
 
-    while (secretNumber != number && (numberOfGuesses < numberOfguessAllowed)) {
+    while (secretNumber != *guess && (numberOfGuesses <= numberOfguessAllowed)) {
+      if (numberOfGuesses == numberOfguessAllowed) {
+        std::cout << "\nYou have reached the max number of guesses\nTry again soon! Enjoy.\n";
+        return 0;
+      }
+
+      printf("\nCurrent chances remaining: %d\n", (numberOfguessAllowed - incrementRef));
       printf("Guess the number between (1 - 50): ");
-      std::cin >>  number;
-      bool result = isGuessCorrect(number, secretNumber);
+      std::cin >>  *guess;
+      bool result = isGuessCorrect(*guess, secretNumber);
 
       if (result == true) {
         std::cout << std::boolalpha << result << "  -  Number: " << secretNumber << "\n";
       }
 
-      if (result == false && number < secretNumber) {
-        printf("Guess a little higher to succeed. %10d\n", number);
-      } else if (result == false && number > secretNumber) {
-        printf("Guess a little lower to succeed. %10d\n", number);
+      if (result == false && *guess < secretNumber) {
+        printf("Guess a little higher to succeed. %2d\n", *guess);
+      } else if (result == false && *guess > secretNumber) {
+        printf("Guess a little lower to succeed. %2d\n", *guess);
       } else {
         std::cout << "Hooray! Thank you for playing. Join us again.\n";
       }
-
-      numberOfGuesses++;
+      // Increment Reference
+      incrementRef++;
     }
 
     return 0;
