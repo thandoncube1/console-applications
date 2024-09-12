@@ -16,9 +16,9 @@ int main() {
     int numberOfguessAllowed = 10;
     int numberOfGuesses = 0;
 
-    // Assign pointers
-    int* guess = &number;
-    int& incrementRef = numberOfGuesses;
+    // Assign memory
+    int* guess = &number; // Pointer
+    int& incrementRef = numberOfGuesses; // Reference
 
     while (secretNumber != *guess && (numberOfGuesses <= numberOfguessAllowed)) {
       if (numberOfGuesses == numberOfguessAllowed) {
