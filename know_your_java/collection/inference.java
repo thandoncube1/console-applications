@@ -18,5 +18,14 @@ public class Inference {
    numbers.remove(1);
 
    System.out.println(numbers);
+
   }
 }
+
+// List.of is an immutable List and (add and set) are not supported.
+// This is a really good method when working with functional programming.
+// .of method does not support null values, it crushes at that particular place
+// 
+// Set.of
+// Map.of
+// Set - the Set doesn't take any duplicates at all.
