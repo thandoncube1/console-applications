@@ -3,7 +3,9 @@ import java.util.*;
 public class Sample {
   public static void main(String[] args) {
     // List<Integer> numbers = new new ArrayList<Integer> (List.of(1, 2, 3));
-    Collection<Integer> numbers = new ArrayList<Integer> (List.of(1, 2, 3));
+    // Collection<Integer> numbers = new ArrayList<Integer> (List.of(1, 2, 3));
+
+    var numbers = new ArrayList<Integer>(List.of(1, 2, 3));
 
     System.out.println(numbers); // [1, 2, 3]
 
@@ -25,3 +27,8 @@ public class Sample {
 //
 // Multimethods -- is polymorphism on steroids - the method that is called is based on the runtime type of both 
 // the reference of the receiver and the runtime type of the parameters of the functions
+//
+// If we change the Collection<Integer> to var
+// What will happen? (Type inference)
+//
+// var is not dynamic typing, it is type inference.
