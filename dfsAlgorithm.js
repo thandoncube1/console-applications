@@ -21,18 +21,19 @@ const europeGraph = {
 
 function dfs(graph, start) {
   const visited = new Set();
-  const result = new Array(); // Typed array of size 8.
+  const result = new Array() // Typed array of size 8.
 
-  function internalDFS(node) {
+  function internalDFS(node, index) {
     if(visited.has(node)) return;
     visited.add(node);
     result.push(node);
-
-    graph[node].forEach((nextNode) => {
+    
+    // We pass the node from the graph and traverse the arrays (path)
+    for (const nextNode of graph[node]) {
       if (!visited.has(nextNode)) {
         internalDFS(nextNode);
       }
-    });
+    };
   }
 
   internalDFS(start);
